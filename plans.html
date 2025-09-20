@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>مستقبل کی منصوبہ بندی</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      margin: 0;
+      padding: 0;
+      background: #1c1c1c;
+      color: #f0f0f0;
+      line-height: 1.8;
+    }
+    /* Top Thanks Section */
+    .thanks-section {
+      text-align: center;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #222, #444);
+      animation: fadeInDown 1.2s ease;
+      border-bottom: 4px solid #00bfa5;
+      margin-bottom: 5px
+    }
+    .thanks-section h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+    header {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      animation: fadeInDown 1.2s ease;
+      border-bottom: 4px solid blue;
+    }
+    header h1 {
+      font-size: 42px;
+      margin: 5px 0; /* gap between borders and text */
+    }
+    header p {
+      font-size: 22px;
+      margin-top: 7px; /* 7px gap for p tags */
+      margin-bottom: 7px;
+    }
+      header h3 {
+      margin: 10px 0;
+      font-size: 24px;
+      color: red;
+    }
+
+    /* Plans Section */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      animation: fadeInUp 1.2s ease;
+    }
+    .card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      margin: 10px 0;
+      font-size: 24px;
+      color: #00c6ff;
+    }
+    .card p {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      animation: fadeIn 2s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive Fix: 2 cards per row on desktop */
+    @media (min-width: 768px) {
+      .plans {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .plans {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="thanks-section">
+    <h2>ڈیٹا اپ ڈیٹ کرنے کا شکریہ</h2>
+  </section>
+  
+  <!-- Insurance Message -->
+  <header>
+    <h1>اپنے اور فیملی کے مستقبل کی ضروریات کو مدنظر رکھتے ہوئے</h1>
+    <p>آپ کے آج کی تھوڑی سی بچت، نہ صرف سرمایہ کاری میں تبدیل ہوگی بلکہ آپ کو تحفظ بھی فراہم کرئے گی</p>
+    <p>مثلا روز کے 100روپے کی بچت، میچورٹی تقریباً 2880000 روپے </p>
+    <p><b><h3>آپ اپنی قسط (GPF)کے ذریعہ بھی ادا کر سکتے ہیں</h3></b></p>
+  </header>
+
+  <!-- Insurance Plans -->
+  <div class="container">
+    <section class="plans">
+      <div class="card">
+        <img src="Plan1.jpeg" alt="پالیسی تصویر">
+        <h3>03 اقساط کا پلان</h3>
+        <p>03 سال قسطیں جمع کروائیں اور 10 سال بعد حاصل کریں 2.5 گنا</p>
+      </div>
+      <div class="card">
+        <img src="Plan2.jpeg" alt="پالیسی تصویر">
+        <h3>07 اقساط والا پلان</h3>
+        <p>07 سال قسطیں جمع کروائیں اور 20 سال بعد حاصل کریں 4 سے 5 گنا</p>
+      </div>
+      <div class="card">
+        <img src="Plan3.jpeg" alt="پالیسی تصویر">
+        <h3>20 اقساط والا پلان</h3>
+        <p>20 سال قسطیں جمع کروائیں اور 20 سال بعد حاصل کریں 4 گنا</p>
+      </div>
+      <div class="card">
+        <img src="Plan4.jpeg" alt="پالیسی تصویر">
+        <h3>اپنی آمدن بڑھائیں</h3>
+        <p>یا تو خود باقاعدہ رجسٹرڈ ہوکر کام کریں یا رجسٹرڈ ہوئے بغیر آزاد رہتے ہوئے میرے ذریعہ پالیسی پلان فروخت کروائیں اور اس کے منافع میں سے حصہ حاصل کریں۔  
+          <h3>Big Offer</h3>
+        2025 کے باقی ماہ (ستمبر تا دسمبر) کے دوران 100 فیصد منافع آپ کا۔<br> مزید تفصیل کے لئے رابطہ کریں۔ شکریہ</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p><h3>اسٹیٹ لائف انشورنس میرپور زون
+    <br>  رابطہ نمبر: 03455511415</h3></p>
+  </footer>
+
+</body>
+</html>
