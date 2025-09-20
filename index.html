@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,6 +21,7 @@
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
     }
     h1 {
       font-weight: 700;
@@ -34,14 +35,28 @@
     .btn-custom {
       min-width: 180px;
       padding: 12px 20px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 500;
       border-radius: 50px;
       transition: all 0.3s ease;
+      white-space: normal;
+      line-height: 1.4;
     }
     .btn-custom:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .upload-box {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .upload-box h5 {
+      color: #198754;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
   </style>
 </head>
@@ -57,16 +72,33 @@
 
       <!-- Intro Text -->
       <p class="lead mb-4">
-        السلام علیکم۔ مرکزی دفتر پولیس مظفرآباد پولیس ملازمان کے کمپیوٹرائزڈ سروس کارڈ و میڈیل کارڈ کا اجرا کرنے جا رہا ہے۔ جس کےلئے کچھ بنیادی معلومات درکار ہیں۔
+        السلام علیکم۔ مرکزی دفتر پولیس مظفرآباد پولیس ملازمان کے کمپیوٹرائزڈ سروس کارڈ و میڈیکل کارڈ کا اجرا کرنے جا رہا ہے۔ جس کےلئے کچھ بنیادی معلومات درکار ہیں۔
         نیچھے دو بٹن ہیں ایک آپ کی تصویر اپلوڈ کرنے کا اور دوسرا مطلوبہ ریکارڈ اندراج کا۔ پہلے فارم فل کر لیں پھر دوبارہ لنک اوپن کر کے تصویر اپ لوڈ کریں۔ 
         رہمنائی کےلئے رابطہ کریں۔ شکریہ
       </p>
 
-      <!-- Buttons Row -->
-      <div class="d-flex justify-content-center gap-3">
+      <!-- Data Entry Button -->
+      <div class="mb-4">
         <a href="form.html" class="btn btn-primary btn-custom">Data Entry Form</a>
-        <a href="https://docs.google.com/forms/d/your-google-form-id/viewform" target="_blank" class="btn btn-success btn-custom">Upload Picture</a>
       </div>
+
+      <!-- Upload Section -->
+      <div class="upload-box">
+        <h5>تصویر اپلوڈ کرنے کے لئے</h5>
+        <div class="mb-3">
+          <select class="form-select">
+            <option value="">Posting Place Select Karein</option>
+            <option value="office1">Office 1</option>
+            <option value="office2">Office 2</option>
+            <option value="office3">Office 3</option>
+            <option value="office4">Office 4</option>
+          </select>
+        </div>
+        <a href="https://docs.google.com/forms/d/your-google-form-id/viewform" target="_blank" class="btn btn-success btn-custom w-100">
+          Upload Picture
+        </a>
+      </div>
+
     </div>
   </div>
 
