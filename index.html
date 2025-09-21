@@ -65,17 +65,17 @@
       line-height: 1.5;  /* text ko breathing space di */
       font-size: 1rem;
     }
-    /* 👇 Hand animation */
-    .hand-animate img {
-      width: 50px;
-      height: auto;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
-      animation: bounce 1.2s infinite ease-in-out;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(12px); }
-    }
+    .hand-icon {
+  width: 80px;   /* size adjust kar sakte ho */
+  margin-bottom: 12px;
+  animation: bounce 1.5s infinite; /* simple up-down animation */
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
   </style>
 </head>
 <body class="d-flex justify-content-center align-items-center py-4">
@@ -94,10 +94,14 @@
         ریکارڈ کے اندراج کےلئے کلک کریں۔ 
       </p>
 
-      <!-- 👇 Animated Hand -->
-      <div class="hand-animate mb-2">
-        <img src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="Down Hand">
-      </div>
+      <!-- Hand Image Above Button -->
+     <img src="hand.png" 
+     alt="Hand Pointing Down" 
+     class="hand-icon">
+
+<!-- Data Entry Button -->
+<a href="form.html" class="btn btn-primary btn-custom">Data Entry Form</a>
+
 
       <!-- Data Entry Button -->
       <div class="mb-4">
@@ -110,10 +114,10 @@
         <div class="mb-3">
           <select id="postingSelect" class="form-select">
             <option value="">Select Posting Place</option>
-            <option value="https://docs.google.com/forms/d/FORM_ID_REGION/viewform">Region Office</option>
-            <option value="https://docs.google.com/forms/d/FORM_ID_MIRPUR/viewform">District Mirpur</option>
-            <option value="https://docs.google.com/forms/d/FORM_ID_KOTLI/viewform">District Kotli</option>
-            <option value="https://docs.google.com/forms/d/FORM_ID_BHIMBER/viewform">District Bhimber</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLScr3MKJlxbNkfQZu-3umqXoJqx2G287OS-J0kylqn6rRTYEDg/viewform">Region Office</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSdYXAtlVNGorvmRtge_7JGM3V0S8vlLcozVpKMnb8gN9_l7MA/viewform">District Mirpur</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe6xKSjTsAi3xq7IYVl_q1Vxy3BDJB4IiSiRpJLUzDKpAg36Q/viewform">District Kotli</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe40QArWeGbywW-eR1zgcVp5KG_ssuaFJVgakcz08aGUQj-jA/viewform">District Bhimber</option>
           </select>
         </div>
         <button onclick="openForm()" class="btn btn-success btn-custom w-100">
