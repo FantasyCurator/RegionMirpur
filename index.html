@@ -86,21 +86,32 @@
       <div class="upload-box">
         <h5>تصویر اپلوڈ کرنے کے لئے</h5>
         <div class="mb-3">
-          <select class="form-select">
+          <select id="postingSelect" class="form-select">
             <option value="">Posting Place Select Karein</option>
-            <option value="office1">Office 1</option>
-            <option value="office2">Office 2</option>
-            <option value="office3">Office 3</option>
-            <option value="office4">Office 4</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLScr3MKJlxbNkfQZu-3umqXoJqx2G287OS-J0kylqn6rRTYEDg/viewform">Region Office</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSdYXAtlVNGorvmRtge_7JGM3V0S8vlLcozVpKMnb8gN9_l7MA/viewform">District Mirpur</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe6xKSjTsAi3xq7IYVl_q1Vxy3BDJB4IiSiRpJLUzDKpAg36Q/viewform">District Kotli</option>
+            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe40QArWeGbywW-eR1zgcVp5KG_ssuaFJVgakcz08aGUQj-jA/viewform">District Bhimber</option>
           </select>
         </div>
-        <a href="https://docs.google.com/forms/d/your-google-form-id/viewform" target="_blank" class="btn btn-success btn-custom w-100">
+        <button onclick="openForm()" class="btn btn-success btn-custom w-100">
           Upload Picture
-        </a>
+        </button>
       </div>
 
     </div>
   </div>
+
+  <script>
+    function openForm() {
+      const link = document.getElementById("postingSelect").value;
+      if (link) {
+        window.open(link, "_blank");
+      } else {
+        alert("Please select a Posting Place first.");
+      }
+    }
+  </script>
 
 </body>
 </html>
