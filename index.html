@@ -65,9 +65,20 @@
       line-height: 1.5;  /* text ko breathing space di */
       font-size: 1rem;
     }
+    /* 👇 Hand animation */
+    .hand-animate img {
+      width: 50px;
+      height: auto;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
   </style>
 </head>
-<body class="d-flex justify-content-center align-items-center py-4"><!-- vh-100 hata kar py-5 -->
+<body class="d-flex justify-content-center align-items-center py-4">
 
   <div class="container text-center">
     <div class="welcome-section mx-auto col-md-8 col-lg-6">
@@ -80,9 +91,13 @@
       <!-- Intro Text -->
       <p class="lead mb-4">
         پولیس ملازمان کے کمپیوٹرائزڈ سروس کارڈ و میڈیکل کارڈ کے اجرا کےلئے کچھ بنیادی معلومات درکار ہیں۔
-       ریکارڈ کے اندراج کےلئے "ڈیٹا انٹری فارم" کے بٹن پر کلک کریں۔ 
-        رہمنائی کےلئے رابطہ کریں۔ شکریہ
+        ریکارڈ کے اندراج کےلئے کلک کریں۔ 
       </p>
+
+      <!-- 👇 Animated Hand -->
+      <div class="hand-animate mb-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="Down Hand">
+      </div>
 
       <!-- Data Entry Button -->
       <div class="mb-4">
