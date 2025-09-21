@@ -50,7 +50,7 @@
       background: #ffffff;
       border: 1px solid #dee2e6;
       border-radius: 12px;
-      padding: 30px; /* thoda zyada padding */
+      padding: 30px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .upload-box h5 {
@@ -58,24 +58,17 @@
       font-weight: 600;
       margin-bottom: 15px;
     }
-    /* Dropdown fix */
-    .form-select {
-      padding: 10px 15px;
-      min-height: 50px;  /* dropdown ko thoda bara kiya */
-      line-height: 1.5;  /* text ko breathing space di */
-      font-size: 1rem;
+    /* 👇 Hand animation */
+    .hand-animate img {
+      width: 55px;
+      height: auto;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+      animation: bounce 1.2s infinite ease-in-out;
     }
-    .hand-icon {
-  width: 80px;   /* size adjust kar sakte ho */
-  margin-bottom: 12px;
-  animation: bounce 1.5s infinite; /* simple up-down animation */
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(12px); }
-}
-
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
   </style>
 </head>
 <body class="d-flex justify-content-center align-items-center py-4">
@@ -94,14 +87,10 @@
         ریکارڈ کے اندراج کےلئے کلک کریں۔ 
       </p>
 
-      <!-- Hand Image Above Button -->
-     <img src="hand.png" 
-     alt="Hand Pointing Down" 
-     class="hand-icon">
-
-<!-- Data Entry Button -->
-<a href="form.html" class="btn btn-primary btn-custom">Data Entry Form</a>
-
+      <!-- 👇 Animated Hand (from GitHub PNG) -->
+      <div class="hand-animate mb-2">
+        <img src="https://raw.githubusercontent.com/YourUserName/YourRepoName/main/hand.png" alt="Down Hand">
+      </div>
 
       <!-- Data Entry Button -->
       <div class="mb-4">
