@@ -50,7 +50,7 @@
       background: #ffffff;
       border: 1px solid #dee2e6;
       border-radius: 12px;
-      padding: 25px;
+      padding: 30px; /* thoda zyada padding */
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .upload-box h5 {
@@ -58,9 +58,16 @@
       font-weight: 600;
       margin-bottom: 15px;
     }
+    /* Dropdown fix */
+    .form-select {
+      padding: 10px 15px;
+      min-height: 50px;  /* dropdown ko thoda bara kiya */
+      line-height: 1.5;  /* text ko breathing space di */
+      font-size: 1rem;
+    }
   </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100">
+<body class="d-flex justify-content-center align-items-center py-5"><!-- vh-100 hata kar py-5 -->
 
   <div class="container text-center">
     <div class="welcome-section mx-auto col-md-8 col-lg-6">
@@ -72,7 +79,8 @@
 
       <!-- Intro Text -->
       <p class="lead mb-4">
-        پولیس ملازمان کے کمپیوٹرائزڈ سروس کارڈ و میڈیکل کارڈ کے اجرا کےلئے کچھ بنیادی معلومات درکار ہیں۔
+        السلام علیکم۔ مرکزی دفتر پولیس مظفرآباد پولیس ملازمان کے کمپیوٹرائزڈ سروس کارڈ و میڈیکل کارڈ کا اجرا کرنے جا رہا ہے۔ جس کےلئے کچھ بنیادی معلومات درکار ہیں۔
+        نیچھے دو بٹن ہیں ایک آپ کی تصویر اپلوڈ کرنے کا اور دوسرا مطلوبہ ریکارڈ اندراج کا۔ پہلے فارم فل کر لیں پھر دوبارہ لنک اوپن کر کے تصویر اپ لوڈ کریں۔ 
         رہمنائی کےلئے رابطہ کریں۔ شکریہ
       </p>
 
@@ -83,14 +91,14 @@
 
       <!-- Upload Section -->
       <div class="upload-box">
-        <h5>تصویراپڈیٹ کرنےکےلئے</h5>
+        <h5>تصویر اپلوڈ کرنے کے لئے</h5>
         <div class="mb-3">
           <select id="postingSelect" class="form-select">
-            <option value="">Select Posting Place</option>
-            <option value="https://docs.google.com/forms/d/e/1FAIpQLScr3MKJlxbNkfQZu-3umqXoJqx2G287OS-J0kylqn6rRTYEDg/viewform">Region Office</option>
-            <option value="https://docs.google.com/forms/d/e/1FAIpQLSdYXAtlVNGorvmRtge_7JGM3V0S8vlLcozVpKMnb8gN9_l7MA/viewform">District Mirpur</option>
-            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe6xKSjTsAi3xq7IYVl_q1Vxy3BDJB4IiSiRpJLUzDKpAg36Q/viewform">District Kotli</option>
-            <option value="https://docs.google.com/forms/d/e/1FAIpQLSe40QArWeGbywW-eR1zgcVp5KG_ssuaFJVgakcz08aGUQj-jA/viewform">District Bhimber</option>
+            <option value="">Posting Place Select Karein</option>
+            <option value="https://docs.google.com/forms/d/FORM_ID_REGION/viewform">Region Office</option>
+            <option value="https://docs.google.com/forms/d/FORM_ID_MIRPUR/viewform">District Mirpur</option>
+            <option value="https://docs.google.com/forms/d/FORM_ID_KOTLI/viewform">District Kotli</option>
+            <option value="https://docs.google.com/forms/d/FORM_ID_BHIMBER/viewform">District Bhimber</option>
           </select>
         </div>
         <button onclick="openForm()" class="btn btn-success btn-custom w-100">
