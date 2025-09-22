@@ -167,61 +167,71 @@ function getScriptURL(place) {
   }
 }
 
-
   // Submit all to Apps Script
-  submitToSheetsBtn.addEventListener('click', async () => {
-    if (!personalForm.checkValidity()) {
-      personalForm.reportValidity();
-      return;
+submitToSheetsBtn.addEventListener('click', async () => {
+  if (!personalForm.checkValidity()) {
+    personalForm.reportValidity();
+    return;
+  }
+  if (familyMembers.length === 0) {
+    alert('Please add at least one family member before submitting.');
+    return;
+  }
+
+  const employee = {
+    postingPlace: document.getElementById('postingPlace').value,
+    fullName: document.getElementById('fullName').value.trim(),
+    designation: document.getElementById('designation').value,
+    employeeCnic: document.getElementById('employeeCnic').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    mobile: document.getElementById('mobile').value.trim(),
+    bloodGroup: document.getElementById('bloodGroup').value
+  };
+
+  if (!/^\d{13}$/.test(employee.employeeCnic)) {
+    alert('Please enter valid 13-digit Employee CNIC.');
+    return;
+  }
+
+  // choose correct script URL
+  const url = getScriptURL(employee.postingPlace);
+  if (!url) {
+    alert("Invalid posting place selected!");
+    return;
+  }
+
+  submitStatus.style.display = 'block';
+  statusText.textContent = 'Saving to Google Sheets...';
+  submitToSheetsBtn.disabled = true;
+
+  try {
+    const body = new URLSearchParams();
+    body.append('employee', JSON.stringify(employee));
+    body.append('familyMembers', JSON.stringify(familyMembers));
+
+    const res = await fetch(url, {
+      method: 'POST',
+      body: body
+    });
+
+    const data = await res.json();
+
+    if (data && (data.status === 'success' || data.result === 'success')) {
+      window.location.href = "plans.html";
+    } else {
+      const msg = (data && (data.message || data.error)) || 'Unknown error';
+      statusText.textContent = 'Error: ' + msg;
     }
-    if (familyMembers.length === 0) {
-      alert('Please add at least one family member before submitting.');
-      return;
-    }
-
-    const employee = {
-      postingPlace: document.getElementById('postingPlace').value,
-      fullName: document.getElementById('fullName').value.trim(),
-      designation: document.getElementById('designation').value,
-      employeeCnic: document.getElementById('employeeCnic').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      mobile: document.getElementById('mobile').value.trim(),
-      bloodGroup: document.getElementById('bloodGroup').value
-    };
-
-    if (!/^\d{13}$/.test(employee.employeeCnic)) {
-      alert('Please enter valid 13-digit Employee CNIC.');
-      return;
-    }
-
-    const url = getScriptURL(employee.postingPlace);
-if (!url) {
-  alert("Invalid posting place selected!");
-  return;
-}
-
-const res = await fetch(url, {
-  method: 'POST',
-  body: body
+  } catch (err) {
+    console.error(err);
+    statusText.textContent = 'Error: ' + (err.message || err);
+  } finally {
+    submitToSheetsBtn.disabled = false;
+    setTimeout(()=> submitStatus.style.display = 'none', 2000);
+  }
 });
 
 
-      const data = await res.json();
-
-      if (data && (data.status === 'success' || data.result === 'success')) {
-        window.location.href = "plans.html";
-      } else {
-        const msg = (data && (data.message || data.error)) || 'Unknown error';
-        statusText.textContent = 'Error: ' + msg;
-      }
-    } catch (err) {
-      console.error(err);
-      statusText.textContent = 'Error: ' + (err.message || err);
-    } finally {
-      submitToSheetsBtn.disabled = false;
-      setTimeout(()=> submitStatus.style.display = 'none', 2000);
-    }
-  });
-
 }); // DOMContentLoaded
+
 
