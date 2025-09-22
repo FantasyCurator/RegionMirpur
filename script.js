@@ -151,21 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Map posting place to scriptURL
-  function getScriptURL(postingPlace) {
-    switch (postingPlace) {
-      case "Region Office":
-        return "https://script.google.com/macros/s/AKfycbyMg1PH-cETT0IRRnuvmaffZj6x8PsRylEz3tcE3wju1idgsn4wZwGLVFrsG4Xh5nmSNw/exec";
-      case "District Mirpur":
-        return "https://script.google.com/macros/s/AKfycbwoblVAfQBNcKmcfJyjbWhkyuKQ2eUFmCQEqBsyq4HoA4jiO3mKcv5jL1ipVBWvAXjYmA/exec";
-      case "District Kotli":
-        return "https://script.google.com/macros/s/AKfycbzdp71GGpnMJm28V5YqXLPtu0eZ_5zJ8WKAVk64F-URViplVp5WIJzWEpLmdHwLXCqF/exec";
-      case "District Bhimber":
-        return "https://script.google.com/macros/s/AKfycbxwMHZQfM0Im5n0Zl1DkgqvkeO1mjD3_3VPSViXRfIY5R_eA1ePEkAz48tEMRMVieSb/exec";
-      default:
-        return "";
-    }
+// Get correct script URL based on posting place
+function getScriptURL(place) {
+  switch(place) {
+    case "Region Office":
+      return "https://script.google.com/macros/s/AKfycbyMg1PH-cETT0IRRnuvmaffZj6x8PsRylEz3tcE3wju1idgsn4wZwGLVFrsG4Xh5nmSNw/exec";
+    case "District Mirpur":
+      return "https://script.google.com/macros/s/AKfycbwoblVAfQBNcKmcfJyjbWhkyuKQ2eUFmCQEqBsyq4HoA4jiO3mKcv5jL1ipVBWvAXjYmA/exec";
+    case "District Kotli":
+      return "https://script.google.com/macros/s/AKfycbzdp71GGpnMJm28V5YqXLPtu0eZ_5zJ8WKAVk64F-URViplVp5WIJzWEpLmdHwLXCqF/exec";
+    case "District Bhimber":
+      return "https://script.google.com/macros/s/AKfycbxwMHZQfM0Im5n0Zl1DkgqvkeO1mjD3_3VPSViXRfIY5R_eA1ePEkAz48tEMRMVieSb/exec";
+    default:
+      return null;
   }
+}
+
 
   // Submit all to Apps Script
   submitToSheetsBtn.addEventListener('click', async () => {
@@ -193,25 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const scriptURL = getScriptURL(employee.postingPlace);
-    if (!scriptURL) {
-      alert("Invalid posting place selected. Please choose correctly.");
-      return;
-    }
+    const url = getScriptURL(employee.postingPlace);
+if (!url) {
+  alert("Invalid posting place selected!");
+  return;
+}
 
-    submitStatus.style.display = 'block';
-    statusText.textContent = 'Saving to Google Sheets...';
-    submitToSheetsBtn.disabled = true;
+const res = await fetch(url, {
+  method: 'POST',
+  body: body
+});
 
-    try {
-      const body = new URLSearchParams();
-      body.append('employee', JSON.stringify(employee));
-      body.append('familyMembers', JSON.stringify(familyMembers));
-
-      const res = await fetch(scriptURL, {
-        method: 'POST',
-        body: body
-      });
 
       const data = await res.json();
 
@@ -231,3 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 }); // DOMContentLoaded
+
