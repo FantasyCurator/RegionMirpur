@@ -156,11 +156,11 @@ function getScriptURL(place) {
   switch(place) {
     case "Region Office":
       return "https://script.google.com/macros/s/AKfycbyMg1PH-cETT0IRRnuvmaffZj6x8PsRylEz3tcE3wju1idgsn4wZwGLVFrsG4Xh5nmSNw/exec";
-    case "District Mirpur":
+    case "Mirpur":
       return "https://script.google.com/macros/s/AKfycbwoblVAfQBNcKmcfJyjbWhkyuKQ2eUFmCQEqBsyq4HoA4jiO3mKcv5jL1ipVBWvAXjYmA/exec";
-    case "District Kotli":
+    case "Kotli":
       return "https://script.google.com/macros/s/AKfycbzdp71GGpnMJm28V5YqXLPtu0eZ_5zJ8WKAVk64F-URViplVp5WIJzWEpLmdHwLXCqF/exec";
-    case "District Bhimber":
+    case "Bhimber":
       return "https://script.google.com/macros/s/AKfycbxwMHZQfM0Im5n0Zl1DkgqvkeO1mjD3_3VPSViXRfIY5R_eA1ePEkAz48tEMRMVieSb/exec";
     default:
       return null;
@@ -233,5 +233,6 @@ submitToSheetsBtn.addEventListener('click', async () => {
 
 
 }); // DOMContentLoaded
+
 
 
