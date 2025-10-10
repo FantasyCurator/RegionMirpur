@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     submitStatus.style.display = 'block';
-    statusText.textContent = 'Saving to Google Sheets...';
+    statusText.textContent = 'Saving to Database...';
     submitToSheetsBtn.disabled = true;
 
     try {
@@ -239,3 +239,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 }); // DOMContentLoaded
+
